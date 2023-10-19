@@ -250,8 +250,12 @@ class MainActivity : AppCompatActivity() {
             else -> {
                 if(calc.numTemp2.isNotEmpty()){
                     calc.numTemp2 = calc.numTemp2.substring(0, calc.numTemp2.length - 1)
-                    muestraValor(calc.numTemp2, calc.numTemp1 + " " + calc.numTemp2)
-                }else mensajeError("No existe nada que borrar.")
+                    muestraValor(calc.numTemp2, calc.numTemp1 + calc.operadorTxt() + calc.numTemp2)
+                }else {
+                    calc.op = 5
+                    muestraValor(calc.numTemp2, calc.numTemp1 + calc.operadorTxt())
+                    calc.primerNum = true
+                }
             }
         }
         /*
